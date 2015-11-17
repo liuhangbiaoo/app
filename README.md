@@ -1,6 +1,10 @@
 # app
 web前端自动化构架工程
 
+前奏：
+	1,安装nodejs
+	---官网：https://nodejs.org/en/
+
 Git 操作教程：
 
 	a,创建新仓库
@@ -79,4 +83,36 @@ Git 操作教程：
 	---$ git add -i
 
 ----------------------------------------------------------------------------------------------
-	npm init
+Grunt  操作教程：
+	a,安装grunt
+	---$ npm install -g grunt-cli   (客服端  -g:全局安装,注意不是grunt)
+
+	b,创建package.json 文件
+	---$ npm init
+
+	c:创建Gruntfile.js
+	---其中Gruntfile.js 也可以用 grunt-init 来创建(也可手动),最好是手动:
+	---$ npm install -g grunt-init
+	---$ git clone https://github.com/gruntjs/grunt-init-gruntfile.git ~/.grunt-init/gruntfile
+	---$ grunt-init gruntfile  
+	---手动配置Gruntfile.js  文件:
+		module.exports = function (grunt) {
+		  // 项目配置
+		  grunt.initConfig({
+		    pkg: grunt.file.readJSON('package.json'),
+		//开始
+		    uglify: {
+		      build: {
+		        src: 'src/jquery-1.11.1.js',
+		        dest: 'dest/j.min.js'
+		      }
+		    }
+		//结束
+		  });
+		  // 加载提供"uglify"任务的插件
+		  grunt.loadNpmTasks('grunt-contrib-uglify');
+		  // 默认任务
+		  grunt.registerTask('default', ['uglify']);
+		}
+
+		d,安装grunt及插件
