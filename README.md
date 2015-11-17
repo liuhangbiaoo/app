@@ -103,23 +103,59 @@ Grunt  操作教程：
 	---$ git clone https://github.com/gruntjs/grunt-init-gruntfile.git ~/.grunt-init/gruntfile
 	---$ grunt-init gruntfile  
 	---手动配置Gruntfile.js  文件:
-		module.exports = function (grunt) {
-		  // 项目配置
-		  grunt.initConfig({
-		    pkg: grunt.file.readJSON('package.json'),
-		//开始
-		    uglify: {
-		      build: {
-		        src: 'src/jquery-1.11.1.js',
-		        dest: 'dest/j.min.js'
-		      }
-		    }
-		//结束
-		  });
-		  // 加载提供"uglify"任务的插件
-		  grunt.loadNpmTasks('grunt-contrib-uglify');
-		  // 默认任务
-		  grunt.registerTask('default', ['uglify']);
+		module.exports = function(grunt) {
+		    require('load-grunt-tasks')(grunt); //加载所有的任务
+		    // 项目配置
+		    grunt.initConfig({
+		        pkg: grunt.file.readJSON('package.json'),
+		        //开始
+		        //监听文件等
+		        watch: {
+		            livereload: {
+		                options: {
+		                    livereload: true
+		                },
+		                files: 'src',
+		            },
+		        },
+		        //合并
+		        connect: {
+		            options: {
+		                // port: 9000,
+		                // hostname: '*', //默认就是这个值，可配置为本机某个 IP，localhost 或域名
+		                // livereload: 35729 //声明给 watch 监听的端口
+		                livereload: true
+		            },
+		            server: {
+		                options: {
+		                    open: true, //自动打开网页 http://
+		                    base: [
+		                        'src' //主目录
+		                    ]
+		                }
+		            }
+		        },
+		        //结束
+		    });
+		    // 默认任务
+		    grunt.registerTask('default', ['connect:server', 'watch']);
 		}
 
+
 		d,安装grunt及插件
+		---grunt：grunt入口
+		---$ npm install grunt --save-dev  (安装grunt到项目)
+
+		---load-grunt-tasks:自动加载所有任务task,如果没有则每个task都需引入
+		---$ npm install load-grunt-tasks --save-dev 
+
+		---grunt-contrib-watch：监听task(如文件变化)
+		---$npm install grunt-contrib-watch --save-dev
+
+		---grunt-contrib-livereload:浏览器打开
+		---npm install grunt-contrib-livereload --save-dev
+
+		---grunt-contrib-connect ：文件合并
+		---npm install grunt-contrib-connect --save-dev
+
+		ps:如果浏览器打开编码自动刷新需要三个：grunt-contrib-watch,grunt-contrib-connect,grunt-contrib-livereload
