@@ -1,0 +1,27 @@
+{
+  "name": "jsgu",
+  "version": "1.0.0",
+  "description": "web前端自动化构架",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liuhangbiaoo/app.git"
+  },
+  "keywords": [
+    "web���",
+    "\u001b[\u001b[3~\u001b[3~\u001b[C\u001b�",
+    "grunt",
+    "js",
+    "css",
+    "html"
+  ],
+  "author": "\u001b[A\u001b[A\u001b[A\u001b[A\u001b[A\u001b[A\u001b[A\u001b[A\u001b[A\u001b[C\u001b[C\u001b[C\u001b[B\u001b[B\u001b[B\u001b[B\u001b[B\u001b[B\u001b[B\u001b[B\u001b[B\u001b[B\u001b[A\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[C道心",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/liuhangbiaoo/app/issues"
+  },
+  "homepage": "https://github.com/liuhangbiaoo/app#readme"
+}
