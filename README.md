@@ -158,4 +158,8 @@ Grunt  操作教程：
 		---grunt-contrib-connect ：文件合并
 		---npm install grunt-contrib-connect --save-dev
 
+		---grunt-contrib-less:less预编译
+		--- npm install grunt-contrib-less --save-dev
+
+
 		ps:如果浏览器打开编码自动刷新需要三个：grunt-contrib-watch,grunt-contrib-connect,grunt-contrib-livereload

@@ -15,7 +15,17 @@ module.exports = function(grunt) {
                 options: {
                     livereload: true
                 },
-                files: 'src',
+                files: [ //下面文件的改变就会实时刷新网页
+                    'src/{,*/}*.*'
+                    // 'src/*.html',
+                    // 'src/css/{,*/}*.css',
+                    // 'src/js/{,*/}*.js',
+                    // 'src/images/{,*/}*.{png,jpg}'
+                ],
+            },
+            less: {
+                files: ['src/less/*.less'],
+                tasks: ['less:main'],
             },
         },
         //合并
@@ -35,6 +45,17 @@ module.exports = function(grunt) {
                 }
             }
         },
+        // less
+        less: {
+            main: {
+                expand: true,
+                cwd: 'src/less',
+                src: ['*.less'],
+                dest: 'src/css',
+                ext: '.css'
+            }
+        },
+
         //结束
     });
     // 默认任务
