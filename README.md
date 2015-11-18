@@ -163,3 +163,37 @@ Grunt  操作教程：
 
 
 		ps:如果浏览器打开编码自动刷新需要三个：grunt-contrib-watch,grunt-contrib-connect,grunt-contrib-livereload
+
+
+
+
+
+
+
+
+-------------------------------------------------------------------------------------------------------
+
+GitHub  SSH KEY 配置：(如果配置发生意外错误,可以按以下步骤完成)
+
+	Generating SSH keys  可参考：https://help.github.com/articles/generating-ssh-keys/
+
+	a,Step 1: Check for SSH keys:(检查SSH key)
+	---$ ls -al ~/.ss
+
+	b,Step 2: Generate a new SSH key:(创建新的SSH key)
+	---$ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+
+	c,Step 3: Add your key to the ssh-agent: (增加你的密钥到ssh-agent)
+	---$ ssh-agent -s
+	---$ eval $(ssh-agent -s)
+	---$ ssh-add ~/.ssh/id_rsa
+
+	d,Step 4: Add your SSH key to your account:(添加密钥到账户)
+	---$ clip < ~/.ssh/id_rsa.pub
+	---(1) 点击最右侧头像（view profile and more）->setting->
+	---(2)点击左侧栏 SSH keys. 
+	---(3)点击 Add SSH key.   (框一：输入一个名称->可任意)(框二：打开 github_rsa.pub  复制信息粘贴到此处)
+	---(4)点击 Add key  ok 完成
+
+	e,Step 5: Test the connection:(测试信息是否正确)
+	---$ ssh -T git@github.com
