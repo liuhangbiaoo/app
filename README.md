@@ -162,8 +162,8 @@ Grunt  操作教程：
 		--- npm install grunt-contrib-less --save-dev
 
 
-		ps:如果浏览器打开编码自动刷新需要三个：grunt-contrib-watch,grunt-contrib-connect,grunt-contrib-livereload
-
+		ps:如果浏览器打开编码自动刷新需要三个：grunt-contrib-watch,grunt-contrib-connect,grunt-contrib-livereload  (网上大部分教程都需要安装浏览器插件)
+		---(如果按照上面配置 直接命令：grunt   会自动打开http:localhsot:8000   你可修改或编辑 html等文件查看变化 对双屏显示器来说再好不过了)
 
 
 
